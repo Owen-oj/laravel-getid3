@@ -5,7 +5,8 @@
 [![Build Status][ico-travis]][link-travis]
 [![StyleCI][ico-styleci]][link-styleci]
 
-This is where your description should go. Take a look at [contributing.md](contributing.md) to see a to do list.
+This package is a wrapper around *james-heinrich/getid3*.<br>
+**NB: This package is still in development**
 
 ## Installation
 
@@ -15,7 +16,16 @@ Via Composer
 $ composer require owen-oj/laravel-getid3
 ```
 
+If you use Laravel 5.5+ you don't need the following step. If not, once package is installed, you need to register the service provider. Open config/app.php and add the following to the providers key.
+``` bash
+ Owenoj\LaravelGetId3\GetId3ServiceProvider::class,
+```
+
 ## Usage
+using facade
+``` php
+   $trackInfo = MediaInfo::extract($path_to_file);
+```
 
 ## Change log
 

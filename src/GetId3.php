@@ -4,18 +4,10 @@ namespace Owenoj\LaravelGetId3;
 
 class GetId3
 {
-    protected $getID3;
 
     /**
-     * GetId3 constructor.
-     */
-    public function __construct()
-    {
-
-    }
-
-    /**
-     * Using GetId3()
+     * Extract all available info from file
+     *
      * @param $file
      * @return array
      * @throws \getid3_exception
@@ -44,4 +36,21 @@ class GetId3
         \getid3_lib::CopyTagsToComments($info);
         return $info;
     }
+
+    /**
+     * Get the title of the media file
+     *
+     * @param $rawInfo
+     * @return string
+     * @throws \getid3_exception
+     */
+    private function getTitle($rawInfo)
+    {
+        $comments = $rawInfo['comments'];
+
+        $title = isset($comments['title'][0]) ? $comments['title'][0] :$rawInfo['filename'];
+
+        return title_case($title);
+    }
+
 }

@@ -37,7 +37,7 @@
                 "Owenoj\\LaravelGetId3\\GetId3ServiceProvider"
             ],
             "aliases": {
-                "GetMediaInfo": "Owenoj\\LaravelGetId3\\Facades\\GetMediaInfo"
+                "MediaInfo": "Owenoj\\LaravelGetId3\\Facades\\MediaInfo"
             }
         }
     }
