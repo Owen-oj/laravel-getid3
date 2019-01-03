@@ -50,7 +50,7 @@ class GetId3ServiceProvider extends ServiceProvider
     {
         return ['laravel-getid3'];
     }
-    
+
     /**
      * Console-specific booting.
      *
