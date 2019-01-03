@@ -1,6 +1,6 @@
 {
     "name": "owen-oj/laravel-getid3",
-    "description": "This package is a wrapper around james-heinrich/getid3 to extract various informations from media files",
+    "description": "This package is a wrapper around james-heinrich/getid3 to extract various information from media files",
     "license": "MIT",
     "authors": [
         {
