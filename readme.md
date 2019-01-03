@@ -3,7 +3,7 @@
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
 [![Build Status][ico-travis]][link-travis]
-[![StyleCI][ico-styleci]][link-styleci]
+[![StyleCI](https://github.styleci.io/repos/163754555/shield?branch=master)](https://github.styleci.io/repos/163754555)
 
 This package is a wrapper around *james-heinrich/getid3*.<br>
 **NB: This package is still in development**
