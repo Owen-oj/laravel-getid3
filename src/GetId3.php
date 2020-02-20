@@ -8,7 +8,6 @@ class GetId3
 {
     protected $file;
 
-
     public function __construct(UploadedFile $file)
     {
         $this->file = $file;
@@ -34,12 +33,12 @@ class GetId3
         //if comments doesn't exist, we will add it ourselves
         isset($info['comments']) ? $info['comments'] : ($info + $comments);
 
-        if (!isset($info['comments']) && !isset($info['tags'])) {
+        if (! isset($info['comments']) && ! isset($info['tags'])) {
             $info = isset($info['id3v2']['comments']) ? array_merge($info,
                 ['tags' => ['id3v2' => $info['id3v2']['comments']]]) : $info;
         }
 
-        if (!isset($info['id3v2']) && isset($info['id3v1'])) {
+        if (! isset($info['id3v2']) && isset($info['id3v1'])) {
             $info = isset($info['id3v1']['comments']) ? array_merge($info,
                 ['tags' => ['id3v1' => $info['id3v1']['comments']]]) : $info;
         }
@@ -66,7 +65,7 @@ class GetId3
     }
 
     /**
-     * Get the playtime of the media file
+     * Get the playtime of the media file.
      * @return mixed|null
      */
     public function getPlaytime()
@@ -75,7 +74,7 @@ class GetId3
     }
 
     /**
-     * Get the artwork of the media file
+     * Get the artwork of the media file.
      * @param  bool  $convert_to_jpeg
      * @return mixed|string
      */
@@ -83,15 +82,15 @@ class GetId3
     {
         $image = isset($this->extractInfo()['comments']['picture'][0]['data'])
             ? base64_encode($this->extractInfo()['comments']['picture'][0]['data']) : null;
-        if (!is_null($image) && $convert_to_jpeg) {
+        if (! is_null($image) && $convert_to_jpeg) {
             $image = $this->base64_to_jpeg($image);
         }
-        return $image;
 
+        return $image;
     }
 
     /**
-     * Convert base64 image to jpeg
+     * Convert base64 image to jpeg.
      * @param $base64_string
      * @return mixed
      */
