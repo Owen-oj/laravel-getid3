@@ -33,7 +33,7 @@ $track->extractInfo()
 //get title
 $track->getTitle()
 
-get playtime
+//get playtime
 $track->getPlaytime()
 ```
 
