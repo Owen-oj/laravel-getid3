@@ -22,10 +22,29 @@ If you use Laravel 5.5+ you don't need the following step. If not, once package 
 ```
 
 ## Usage
-using facade
+use Owenoj\LaravelGetId3\GetId3
 ``` php
-   $trackInfo = MediaInfo::extract($path_to_file);
+//instantiate class with file
+$track = new GetId3(request()->file('file');
+//get all info
+
+$track->extractInfo()
+
+//get title
+$track->getTitle()
+
+get playtime
+$track->getPlaytime()
 ```
+
+We can also extract the artwork from the file
+```php
+//calling this method will return artwork in base64 string
+$track->getArtwork();
+//Optionally you can pass can pass `true` to the method to get a jpeg version. This will return an UploadedFile instance
+$track->getArtwork(true);
+```
+
 
 ## Change log
 
