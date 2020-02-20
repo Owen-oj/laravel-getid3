@@ -25,7 +25,7 @@ If you use Laravel 5.5+ you don't need the following step. If not, once package 
 use Owenoj\LaravelGetId3\GetId3
 ``` php
 //instantiate class with file
-$track = new GetId3(request()->file('file');
+$track = new GetId3(request()->file('file'));
 
 //get all info
 $track->extractInfo()
