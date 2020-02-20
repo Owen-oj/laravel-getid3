@@ -8,7 +8,6 @@ class GetId3
 {
     protected $file;
 
-
     public function __construct(UploadedFile $file)
     {
         $this->file = $file;
@@ -114,14 +113,18 @@ class GetId3
      * Get the artwork of the media file
      * @param  bool  $convert_to_jpeg
      * @return mixed|string
+     * @throws \getid3_exception
      */
     public function getArtwork(bool $convert_to_jpeg = false)
     {
-        $image = isset($this->comments()['picture'][0]['data'])
-            ? base64_encode($this->comments()['picture'][0]['data']) : null;
+
+        $image = isset($this->extractInfo()['comments']['picture'][0]['data'])
+            ? base64_encode($this->extractInfo()['comments']['picture'][0]['data']) : null;
         if (!is_null($image) && $convert_to_jpeg) {
+
             $image = $this->base64_to_jpeg($image);
         }
+
         return $image;
 
     }
