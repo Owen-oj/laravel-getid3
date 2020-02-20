@@ -13,9 +13,8 @@ class GetId3
         $this->file = $file;
     }
 
-
     /**
-     * Get an instance of the underlying get getID3 class
+     * Get an instance of the underlying get getID3 class.
      * @return \getID3
      * @throws \getid3_exception
      */
@@ -39,12 +38,12 @@ class GetId3
         //if comments doesn't exist, we will add it ourselves
         isset($info['comments']) ? $info['comments'] : ($info + $comments);
 
-        if (!isset($info['comments']) && !isset($info['tags'])) {
+        if (! isset($info['comments']) && ! isset($info['tags'])) {
             $info = isset($info['id3v2']['comments']) ? array_merge($info,
                 ['tags' => ['id3v2' => $info['id3v2']['comments']]]) : $info;
         }
 
-        if (!isset($info['id3v2']) && isset($info['id3v1'])) {
+        if (! isset($info['id3v2']) && isset($info['id3v1'])) {
             $info = isset($info['id3v1']['comments']) ? array_merge($info,
                 ['tags' => ['id3v1' => $info['id3v1']['comments']]]) : $info;
         }
@@ -52,11 +51,10 @@ class GetId3
         \getid3_lib::CopyTagsToComments($info);
 
         return $info;
-
     }
 
     /**
-     * Get all comments
+     * Get all comments.
      * @return mixed
      * @throws \getid3_exception
      */
@@ -77,7 +75,7 @@ class GetId3
     }
 
     /**
-     * Get Album name
+     * Get Album name.
      * @return string
      * @throws \getid3_exception
      */
@@ -86,9 +84,8 @@ class GetId3
         return isset($this->comments()['album'][0]) ? $this->comments()['album'][0] : null;
     }
 
-
     /**
-     * Get the playtime of the media file
+     * Get the playtime of the media file.
      * @return string|null
      * @throws \getid3_exception
      */
@@ -98,7 +95,7 @@ class GetId3
     }
 
     /**
-     * Get number of seconds of playtime
+     * Get number of seconds of playtime.
      * @return float
      * @throws \getid3_exception
      */
@@ -106,31 +103,27 @@ class GetId3
     {
         return isset($this->extractInfo()['playtime_seconds']) ?
             round($this->extractInfo()['playtime_seconds'], 2) : 0;
-
     }
 
     /**
-     * Get the artwork of the media file
+     * Get the artwork of the media file.
      * @param  bool  $convert_to_jpeg
      * @return mixed|string
      * @throws \getid3_exception
      */
     public function getArtwork(bool $convert_to_jpeg = false)
     {
-
         $image = isset($this->extractInfo()['comments']['picture'][0]['data'])
             ? base64_encode($this->extractInfo()['comments']['picture'][0]['data']) : null;
-        if (!is_null($image) && $convert_to_jpeg) {
-
+        if (! is_null($image) && $convert_to_jpeg) {
             $image = $this->base64_to_jpeg($image);
         }
 
         return $image;
-
     }
 
     /**
-     * Get genres
+     * Get genres.
      * @return array
      * @throws \getid3_exception
      */
@@ -140,7 +133,7 @@ class GetId3
     }
 
     /**
-     * Get artist
+     * Get artist.
      * @return string|null
      * @throws \getid3_exception
      */
@@ -150,7 +143,7 @@ class GetId3
     }
 
     /**
-     * Get Composer of track
+     * Get Composer of track.
      * @return string|null
      * @throws \getid3_exception
      */
@@ -160,7 +153,7 @@ class GetId3
     }
 
     /**
-     * Get Track number on album
+     * Get Track number on album.
      * @return string|null
      * @throws \getid3_exception
      */
@@ -170,7 +163,7 @@ class GetId3
     }
 
     /**
-     * Get the copyright info of the track
+     * Get the copyright info of the track.
      * @return string|null
      * @throws \getid3_exception
      */
@@ -189,7 +182,7 @@ class GetId3
     }
 
     /**
-     * Convert base64 image to jpeg
+     * Convert base64 image to jpeg.
      * @param $base64_string
      * @return mixed
      */
