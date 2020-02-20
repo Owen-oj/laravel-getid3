@@ -14,6 +14,12 @@ class GetId3
         $this->file = $file;
     }
 
+
+    /**
+     * Get an instance of the underlying get getID3 class
+     * @return \getID3
+     * @throws \getid3_exception
+     */
     private function getId3()
     {
         return new \getID3();
@@ -22,14 +28,14 @@ class GetId3
     /**
      * Extract all available info from file.
      *
-     * @return array
+     * @return array|string
+     * @throws \getid3_exception
      */
     public function extractInfo()
     {
         $comments = ['comments' => []];
-        $getid3 = $this->getId3();
 
-        $info = $getid3->analyze($this->file);
+        $info = $this->getId3()->analyze($this->file);
 
         //if comments doesn't exist, we will add it ourselves
         isset($info['comments']) ? $info['comments'] : ($info + $comments);
@@ -47,6 +53,17 @@ class GetId3
         \getid3_lib::CopyTagsToComments($info);
 
         return $info;
+
+    }
+
+    /**
+     * Get all comments
+     * @return mixed
+     * @throws \getid3_exception
+     */
+    private function comments()
+    {
+        return $this->extractInfo()['comments'];
     }
 
     /**
@@ -57,21 +74,40 @@ class GetId3
      */
     public function getTitle()
     {
-        $comments = $this->extractInfo()['comments'];
-
-        $title = isset($comments['title'][0]) ? $comments['title'][0] : $this->extractInfo()['filename'];
-        $this->title = $title;
-
-        return title_case($title);
+        return isset($this->comments()['title'][0]) ? $this->comments()['title'][0] : $this->extractInfo()['filename'];
     }
 
     /**
+     * Get Album name
+     * @return string
+     * @throws \getid3_exception
+     */
+    public function getAlbum()
+    {
+        return isset($this->comments()['album'][0]) ? $this->comments()['album'][0] : null;
+    }
+
+
+    /**
      * Get the playtime of the media file
-     * @return mixed|null
+     * @return string|null
+     * @throws \getid3_exception
      */
     public function getPlaytime()
     {
         return isset($this->extractInfo()['playtime_string']) ? $this->extractInfo()['playtime_string'] : null;
+    }
+
+    /**
+     * Get number of seconds of playtime
+     * @return float
+     * @throws \getid3_exception
+     */
+    public function getPlaytimeSeconds()
+    {
+        return isset($this->extractInfo()['playtime_seconds']) ?
+            round($this->extractInfo()['playtime_seconds'], 2) : 0;
+
     }
 
     /**
@@ -81,13 +117,72 @@ class GetId3
      */
     public function getArtwork(bool $convert_to_jpeg = false)
     {
-        $image = isset($this->extractInfo()['comments']['picture'][0]['data'])
-            ? base64_encode($this->extractInfo()['comments']['picture'][0]['data']) : null;
+        $image = isset($this->comments()['picture'][0]['data'])
+            ? base64_encode($this->comments()['picture'][0]['data']) : null;
         if (!is_null($image) && $convert_to_jpeg) {
             $image = $this->base64_to_jpeg($image);
         }
         return $image;
 
+    }
+
+    /**
+     * Get genres
+     * @return array
+     * @throws \getid3_exception
+     */
+    public function getGenres()
+    {
+        return isset($this->comments()['genre']) ? $this->comments()['genre'] : [];
+    }
+
+    /**
+     * Get artist
+     * @return string|null
+     * @throws \getid3_exception
+     */
+    public function getArtist()
+    {
+        return isset($this->comments()['artist'][0]) ? $this->comments()['artist'][0] : null;
+    }
+
+    /**
+     * Get Composer of track
+     * @return string|null
+     * @throws \getid3_exception
+     */
+    public function getComposer()
+    {
+        return isset($this->comments()['composer'][0]) ? $this->comments()['composer'][0] : null;
+    }
+
+    /**
+     * Get Track number on album
+     * @return string|null
+     * @throws \getid3_exception
+     */
+    public function getTrackNumber()
+    {
+        return isset($this->comments()['track_number'][0]) ? $this->comments()['track_number'][0] : null;
+    }
+
+    /**
+     * Get the copyright info of the track
+     * @return string|null
+     * @throws \getid3_exception
+     */
+    public function getCopyrightInfo()
+    {
+        return isset($this->comments()['copyright'][0]) ? $this->comments()['copyright'][0] : null;
+    }
+
+    /**
+     * @return mixed|null
+     * @throws \getid3_exception
+     */
+    public function getFileFormat()
+    {
+        return isset($this->extractInfo()['fileformat']) ? $this->extractInfo()['fileformat'] : null;
     }
 
     /**

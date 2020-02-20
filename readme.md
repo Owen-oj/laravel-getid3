@@ -26,8 +26,8 @@ use Owenoj\LaravelGetId3\GetId3
 ``` php
 //instantiate class with file
 $track = new GetId3(request()->file('file');
-//get all info
 
+//get all info
 $track->extractInfo()
 
 //get title
@@ -45,6 +45,32 @@ $track->getArtwork();
 $track->getArtwork(true);
 ```
 
+## Available Methods
+
+#### extractInfo() : array 
+Get an array of all available metadata of file
+#### getArtist() : string      
+ Get the artist of the track
+#### getTitle() : string      
+Get the title of the track
+#### getAlbum() : string       
+Get name of Album
+#### getPlaytime() : string    
+Get a tracks total playtime  
+#### getPlaytimeSeconds() : float
+#### getArtwork
+#### getGenres() : array
+Get the list of genres
+#### getArtist() : string
+Get the artist of the track
+#### getComposer() : string
+Get the composers of the track
+#### getTrackNumber() : string
+Get the track number out of total number on album eg. 1/12
+#### getCopyrightInfo() : string
+Get copyright information of the track
+#### getFileFormat() : string
+Get the file format of the file eg. mp4
 
 ## Change log
 
