@@ -2,11 +2,9 @@
 
 [![Latest Version on Packagist][ico-version]][link-packagist]
 [![Total Downloads][ico-downloads]][link-downloads]
-[![Build Status][ico-travis]][link-travis]
 [![StyleCI](https://github.styleci.io/repos/163754555/shield?branch=master)](https://github.styleci.io/repos/163754555)
 
 This package is a wrapper around *james-heinrich/getid3*.<br>
-**NB: This package is still in development**
 
 ## Installation
 
@@ -22,8 +20,9 @@ If you use Laravel 5.5+ you don't need the following step. If not, once package 
 ```
 
 ## Usage
-use Owenoj\LaravelGetId3\GetId3
 ``` php
+use Owenoj\LaravelGetId3\GetId3;
+
 //instantiate class with file
 $track = new GetId3(request()->file('file'));
 
@@ -58,7 +57,9 @@ Get name of Album
 #### getPlaytime() : string    
 Get a tracks total playtime  
 #### getPlaytimeSeconds() : float
-#### getArtwork
+Get total playtime in seconds
+#### getArtwork() 
+Get the artwork of the track
 #### getGenres() : array
 Get the list of genres
 #### getArtist() : string
@@ -101,12 +102,10 @@ MIT. Please see the [license file](license.md) for more information.
 
 [ico-version]: https://img.shields.io/packagist/v/owen-oj/laravel-getid3.svg?style=flat-square
 [ico-downloads]: https://img.shields.io/packagist/dt/owen-oj/laravel-getid3.svg?style=flat-square
-[ico-travis]: https://img.shields.io/travis/owen-oj/laravel-getid3/master.svg?style=flat-square
 [ico-styleci]: https://styleci.io/repos/12345678/shield
 
 [link-packagist]: https://packagist.org/packages/owen-oj/laravel-getid3
 [link-downloads]: https://packagist.org/packages/owen-oj/laravel-getid3
-[link-travis]: https://travis-ci.org/owen-oj/laravel-getid3
 [link-styleci]: https://styleci.io/repos/12345678
 [link-author]: https://github.com/owen-oj
 [link-contributors]: ../../contributors]

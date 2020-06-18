@@ -6,13 +6,13 @@
         {
             "name": "Owen Jubilant",
             "email": "owen.j@terktrendz.com",
-            "homepage": "https://owenjubilant.me"
+            "homepage": "https://github.com/Owen-oj"
         }
     ],
     "homepage": "https://github.com/owen-oj/laravel-getid3",
     "keywords": ["Laravel", "laravel-getid3"],
     "require": {
-        "illuminate/support": "^5.0|^6.0",
+        "illuminate/support": "^5.0|^6.0|^7.0",
         "james-heinrich/getid3": "^1.9"
     },
     "require-dev": {

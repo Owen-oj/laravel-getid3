@@ -3,6 +3,7 @@
 namespace Owenoj\LaravelGetId3;
 
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Str;
 
 class GetId3
 {
@@ -188,7 +189,8 @@ class GetId3
      */
     private function base64_to_jpeg($base64_string)
     {
-        $output_file = uniqid().time().str_random(4).'-artwork.jpeg';
+
+        $output_file = uniqid().time().Str::random(6).'-artwork.jpeg';
         // open the output file for writing
         $decoded = base64_decode($base64_string);
         $file = file_put_contents(sys_get_temp_dir().'/'.$output_file, $decoded);
