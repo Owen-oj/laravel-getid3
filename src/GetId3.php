@@ -189,7 +189,6 @@ class GetId3
      */
     private function base64_to_jpeg($base64_string)
     {
-
         $output_file = uniqid().time().Str::random(6).'-artwork.jpeg';
         // open the output file for writing
         $decoded = base64_decode($base64_string);
