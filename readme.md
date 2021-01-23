@@ -26,14 +26,19 @@ use Owenoj\LaravelGetId3\GetId3;
 //instantiate class with file
 $track = new GetId3(request()->file('file'));
 
+// Use static methods:
+$track = GetId3::fromUploadedFile(request()->file('file'));
+$track = GetId3::fromDiskAndPath('local', '/some/file.mp3');
+$track = GetId3::fromDiskAndPath('s3', '/some/file.mp3'); // even works with S3
+
 //get all info
-$track->extractInfo()
+$track->extractInfo();
 
 //get title
-$track->getTitle()
+$track->getTitle();
 
 //get playtime
-$track->getPlaytime()
+$track->getPlaytime();
 ```
 
 We can also extract the artwork from the file
