@@ -55,7 +55,7 @@ class GetId3
      */
     public function extractInfo()
     {
-        if (!isset($this->_info)) {
+        if (! isset($this->_info)) {
             $this->_info = $this->analyze();
         }
 

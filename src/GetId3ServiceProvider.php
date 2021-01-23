@@ -6,7 +6,6 @@ use Illuminate\Support\ServiceProvider;
 
 class GetId3ServiceProvider extends ServiceProvider
 {
-
     /**
      * Register any package services.
      *
@@ -21,5 +20,4 @@ class GetId3ServiceProvider extends ServiceProvider
 
         $this->app->alias('GetId3', 'Owenoj\LaravelGetId3\GetId3');
     }
-
 }
