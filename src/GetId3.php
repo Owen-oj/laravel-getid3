@@ -39,7 +39,9 @@ class GetId3
 
     /**
      * Get an instance of the underlying get getID3 class.
+     *
      * @return \getID3
+     *
      * @throws \getid3_exception
      */
     private function getId3()
@@ -51,6 +53,7 @@ class GetId3
      * Extract all available info from file.
      *
      * @return array|string
+     *
      * @throws \getid3_exception
      */
     public function extractInfo()
@@ -88,7 +91,9 @@ class GetId3
 
     /**
      * Get all comments.
+     *
      * @return mixed
+     *
      * @throws \getid3_exception
      */
     private function comments()
@@ -100,6 +105,7 @@ class GetId3
      * Get the title of the media file.
      *
      * @return string
+     *
      * @throws \getid3_exception
      */
     public function getTitle()
@@ -109,7 +115,9 @@ class GetId3
 
     /**
      * Get Album name.
+     *
      * @return string
+     *
      * @throws \getid3_exception
      */
     public function getAlbum()
@@ -119,7 +127,9 @@ class GetId3
 
     /**
      * Get the playtime of the media file.
+     *
      * @return string|null
+     *
      * @throws \getid3_exception
      */
     public function getPlaytime()
@@ -129,7 +139,9 @@ class GetId3
 
     /**
      * Get number of seconds of playtime.
+     *
      * @return float
+     *
      * @throws \getid3_exception
      */
     public function getPlaytimeSeconds()
@@ -140,8 +152,10 @@ class GetId3
 
     /**
      * Get the artwork of the media file.
+     *
      * @param  bool  $convert_to_jpeg
      * @return mixed|string
+     *
      * @throws \getid3_exception
      */
     public function getArtwork(bool $convert_to_jpeg = false)
@@ -157,7 +171,9 @@ class GetId3
 
     /**
      * Get genres.
+     *
      * @return array
+     *
      * @throws \getid3_exception
      */
     public function getGenres()
@@ -167,7 +183,9 @@ class GetId3
 
     /**
      * Get artist.
+     *
      * @return string|null
+     *
      * @throws \getid3_exception
      */
     public function getArtist()
@@ -177,7 +195,9 @@ class GetId3
 
     /**
      * Get Composer of track.
+     *
      * @return string|null
+     *
      * @throws \getid3_exception
      */
     public function getComposer()
@@ -187,7 +207,9 @@ class GetId3
 
     /**
      * Get Track number on album.
+     *
      * @return string|null
+     *
      * @throws \getid3_exception
      */
     public function getTrackNumber()
@@ -197,7 +219,9 @@ class GetId3
 
     /**
      * Get the copyright info of the track.
+     *
      * @return string|null
+     *
      * @throws \getid3_exception
      */
     public function getCopyrightInfo()
@@ -207,6 +231,7 @@ class GetId3
 
     /**
      * @return mixed|null
+     *
      * @throws \getid3_exception
      */
     public function getFileFormat()
@@ -216,6 +241,7 @@ class GetId3
 
     /**
      * Convert base64 image to jpeg.
+     *
      * @param $base64_string
      * @return mixed
      */
