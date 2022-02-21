@@ -158,7 +158,7 @@ class GetId3
      *
      * @throws \getid3_exception
      */
-    public function getArtwork(bool $convert_to_jpeg = false)
+    public function getArtwork($convert_to_jpeg = false)
     {
         $image = isset($this->extractInfo()['comments']['picture'][0]['data'])
             ? base64_encode($this->extractInfo()['comments']['picture'][0]['data']) : null;
