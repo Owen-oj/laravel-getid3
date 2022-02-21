@@ -12,12 +12,12 @@
     "homepage": "https://github.com/owen-oj/laravel-getid3",
     "keywords": ["Laravel", "laravel-getid3","getID3"],
     "require": {
-        "illuminate/support": "^5.0|^6.0|^7.0|^8.0",
+        "illuminate/support": "^8.0|^9.0",
         "james-heinrich/getid3": "^1.9"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.0",
-        "orchestra/testbench": "^4.0"
+        "phpunit/phpunit": "^9.0",
+        "orchestra/testbench": "^7.0"
     },
     "autoload": {
         "psr-4": {
