@@ -67,8 +67,6 @@ Get total playtime in seconds
 Get the artwork of the track
 #### getGenres() : array
 Get the list of genres
-#### getArtist() : string
-Get the artist of the track
 #### getComposer() : string
 Get the composers of the track
 #### getTrackNumber() : string
