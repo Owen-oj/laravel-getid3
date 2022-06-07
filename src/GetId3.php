@@ -72,7 +72,7 @@ class GetId3
         $info = $this->getId3()->analyze($this->file, $this->filesize, '', $this->fp);
 
         //if comments doesn't exist, we will add it ourselves
-        isset($info['comments']) ? $info['comments'] : ($info + $comments);
+        $info = isset($info['comments']) ? $info : array_merge($info, $comments);
 
         if (! isset($info['comments']) && ! isset($info['tags'])) {
             $info = isset($info['id3v2']['comments']) ? array_merge($info,
