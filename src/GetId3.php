@@ -32,7 +32,7 @@ class GetId3
     {
         return new static(
             $path,
-            Storage::disk($disk)->getSize($path),
+            Storage::disk($disk)->size($path),
             Storage::disk($disk)->readStream($path)
         );
     }
