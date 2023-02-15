@@ -2,7 +2,14 @@
 
 All notable changes to `laravel-getid3` will be documented in this file.
 
-## master
+## main
+- changed from master to main
+
+## Version 1.1
+
+### Added
+- change namespace to touchflows\laravel-getid3
+- update dependencies for laravel 10
 
 ### Added
 - fromUploadedFile() static helper
