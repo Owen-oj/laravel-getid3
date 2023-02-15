@@ -1,38 +1,38 @@
 {
-    "name": "owen-oj/laravel-getid3",
-    "description": "This package is a wrapper around james-heinrich/getid3 to extract various information from media files",
+    "name": "touchflows/laravel-getid3",
+    "description": "This package is a wrapper around james-heinrich/getid3 to extract various information from media files. Forked from https://github.com/Owen-oj",
     "license": "MIT",
     "authors": [
         {
-            "name": "Owen Jubilant",
-            "email": "owen.j@terktrendz.com",
-            "homepage": "https://github.com/Owen-oj"
+            "name": "Mark Tamis",
+            "email": "mark.tamis@touchflows.com",
+            "homepage": "https://github.com/TouchFlows"
         }
     ],
-    "homepage": "https://github.com/owen-oj/laravel-getid3",
+    "homepage": "https://github.com/touchflows/laravel-getid3",
     "keywords": ["Laravel", "laravel-getid3","getID3"],
     "require": {
-        "illuminate/support": "^8.0|^9.0",
+        "illuminate/support": "^10.0",
         "james-heinrich/getid3": "^1.9"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0",
-        "orchestra/testbench": "^7.0"
+        "phpunit/phpunit": "^10.0",
+        "orchestra/testbench": "^8.0"
     },
     "autoload": {
         "psr-4": {
-            "Owenoj\\LaravelGetId3\\": "src/"
+            "TouchFlows\\LaravelGetId3\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Owenoj\\LaravelGetId3\\Tests\\": "tests"
+            "TouchFlows\\LaravelGetId3\\Tests\\": "tests"
         }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Owenoj\\LaravelGetId3\\GetId3ServiceProvider"
+                "TouchFLows\\LaravelGetId3\\GetId3ServiceProvider"
             ]
         }
     }

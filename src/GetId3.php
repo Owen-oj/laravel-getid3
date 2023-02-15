@@ -1,6 +1,6 @@
 <?php
 
-namespace Owenoj\LaravelGetId3;
+namespace TouchFlows\LaravelGetId3;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
