@@ -1,6 +1,6 @@
 <?php
 
-namespace Owenoj\LaravelGetId3;
+namespace TouchFlows\LaravelGetId3;
 
 use Illuminate\Support\ServiceProvider;
 
@@ -18,6 +18,6 @@ class GetId3ServiceProvider extends ServiceProvider
             return new GetId3();
         });
 
-        $this->app->alias('GetId3', 'Owenoj\LaravelGetId3\GetId3');
+        $this->app->alias('GetId3', 'TouchFlows\LaravelGetId3\GetId3');
     }
 }
