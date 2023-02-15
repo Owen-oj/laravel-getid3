@@ -13,11 +13,6 @@ class GetId3ServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        // Register the service the package provides.
-        $this->app->singleton('GetId3', function ($app) {
-            return new GetId3();
-        });
-
         $this->app->alias('GetId3', 'Owenoj\LaravelGetId3\GetId3');
     }
 }
