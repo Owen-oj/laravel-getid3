@@ -16,8 +16,7 @@
         "james-heinrich/getid3": "^1.9"
     },
     "require-dev": {
-        "phpunit/phpunit": "^9.0",
-        "orchestra/testbench": "^7.0"
+        "phpunit/phpunit": "^10.0"
     },
     "autoload": {
         "psr-4": {
