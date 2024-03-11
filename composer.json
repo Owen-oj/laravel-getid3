@@ -10,9 +10,13 @@
         }
     ],
     "homepage": "https://github.com/owen-oj/laravel-getid3",
-    "keywords": ["Laravel", "laravel-getid3","getID3"],
+    "keywords": [
+        "Laravel",
+        "laravel-getid3",
+        "getID3"
+    ],
     "require": {
-        "illuminate/support": "^8.0|^9.0|^10.0",
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0",
         "james-heinrich/getid3": "^1.9"
     },
     "require-dev": {
