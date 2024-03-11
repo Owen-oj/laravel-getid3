@@ -4,7 +4,10 @@
 [![Total Downloads][ico-downloads]][link-downloads]
 [![StyleCI](https://github.styleci.io/repos/163754555/shield?branch=master)](https://github.styleci.io/repos/163754555)
 
+
 This package is a wrapper around *james-heinrich/getid3*.<br>
+
+[!["Buy Me A Coffee"](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/kkoj)
 
 ## Installation
 
