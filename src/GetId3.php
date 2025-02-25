@@ -242,7 +242,7 @@ class GetId3
     /**
      * Convert base64 image to jpeg.
      *
-     * @param $base64_string
+     * @param  $base64_string
      * @return mixed
      */
     private function base64_to_jpeg($base64_string)
