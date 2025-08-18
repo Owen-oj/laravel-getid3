@@ -78,6 +78,8 @@ Get the track number out of total number on album eg. 1/12
 Get copyright information of the track
 #### getFileFormat() : string
 Get the file format of the file eg. mp4
+#### getYear() : string
+Get the year of the track
 
 ## Change log
 

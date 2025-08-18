@@ -240,6 +240,18 @@ class GetId3
     }
 
     /**
+     * Get the year of the track.
+     *
+     * @return string|null
+     *
+     * @throws \getid3_exception
+     */
+    public function getYear()
+    {
+        return isset($this->comments()['year'][0]) ? $this->comments()['year'][0] : null;
+    }
+
+    /**
      * Convert base64 image to jpeg.
      *
      * @param  $base64_string
