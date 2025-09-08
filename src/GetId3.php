@@ -252,6 +252,18 @@ class GetId3
     }
 
     /**
+     * Get ISRC of track.
+     *
+     * @return string|null
+     *
+     * @throws \getid3_exception
+     */
+    public function getISRC()
+    {
+        return isset($this->comments()['isrc'][0]) ? $this->comments()['isrc'][0] : null;
+    }
+
+    /**
      * Convert base64 image to jpeg.
      *
      * @param  $base64_string
