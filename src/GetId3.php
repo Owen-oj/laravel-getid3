@@ -311,7 +311,7 @@ class GetId3
      * temporary JPEG file instead of the raw base64 string.
      *
      * @param  bool  $convert_to_jpeg  When true returns an UploadedFile JPEG.
-     * @return string|UploadedFile|null  Base64 string, UploadedFile, or null.
+     * @return string|UploadedFile|null Base64 string, UploadedFile, or null.
      *
      * @throws \getid3_exception
      */
@@ -332,7 +332,7 @@ class GetId3
      * Useful when you want to write the image directly to disk or pass it to
      * an image processing library without the overhead of base64 encoding.
      *
-     * @return string|null  Raw binary data or null if no artwork is present.
+     * @return string|null Raw binary data or null if no artwork is present.
      *
      * @throws \getid3_exception
      */
@@ -372,7 +372,7 @@ class GetId3
     /**
      * Get the playtime in seconds as a float rounded to two decimal places.
      *
-     * @return float  Duration in seconds, or 0 when unknown.
+     * @return float Duration in seconds, or 0 when unknown.
      *
      * @throws \getid3_exception
      */
@@ -459,7 +459,7 @@ class GetId3
      * Note: getID3 must be configured to compute this hash; it is not available
      * for all file types. Returns `null` when not present in the analysis data.
      *
-     * @return string|null  Hexadecimal MD5 string or null.
+     * @return string|null Hexadecimal MD5 string or null.
      *
      * @throws \getid3_exception
      */
@@ -473,7 +473,7 @@ class GetId3
      *
      * Same caveats as {@see getMd5Data()}.
      *
-     * @return string|null  Hexadecimal SHA-1 string or null.
+     * @return string|null Hexadecimal SHA-1 string or null.
      *
      * @throws \getid3_exception
      */
@@ -754,7 +754,7 @@ class GetId3
 
         if (! empty($video['resolution_x']) && ! empty($video['resolution_y'])) {
             return [
-                'width'  => (int) $video['resolution_x'],
+                'width' => (int) $video['resolution_x'],
                 'height' => (int) $video['resolution_y'],
             ];
         }
@@ -764,7 +764,7 @@ class GetId3
         // QuickTime / MP4
         if (! empty($info['quicktime']['video']['resolution_x'])) {
             return [
-                'width'  => (int) $info['quicktime']['video']['resolution_x'],
+                'width' => (int) $info['quicktime']['video']['resolution_x'],
                 'height' => (int) $info['quicktime']['video']['resolution_y'],
             ];
         }
@@ -776,7 +776,7 @@ class GetId3
                     && isset($track['video']['PixelWidth'], $track['video']['PixelHeight'])
                 ) {
                     return [
-                        'width'  => (int) $track['video']['PixelWidth'],
+                        'width' => (int) $track['video']['PixelWidth'],
                         'height' => (int) $track['video']['PixelHeight'],
                     ];
                 }
@@ -786,7 +786,7 @@ class GetId3
         // RIFF / AVI
         if (! empty($info['riff']['video'][0]['resolution_x'])) {
             return [
-                'width'  => (int) $info['riff']['video'][0]['resolution_x'],
+                'width' => (int) $info['riff']['video'][0]['resolution_x'],
                 'height' => (int) $info['riff']['video'][0]['resolution_y'],
             ];
         }
@@ -848,7 +848,7 @@ class GetId3
      * Rotation metadata is embedded by mobile devices when a video is recorded
      * in portrait mode. Only available for QuickTime / MP4 containers.
      *
-     * @return int|null  Degrees of clockwise rotation, or null when not set.
+     * @return int|null Degrees of clockwise rotation, or null when not set.
      *
      * @throws \getid3_exception
      */
@@ -901,7 +901,7 @@ class GetId3
         $output_file = uniqid().time().Str::random(6).'-artwork.jpeg';
         $decoded = base64_decode($base64_string);
         file_put_contents(sys_get_temp_dir().'/'.$output_file, $decoded);
-        
+
         return new UploadedFile(sys_get_temp_dir().'/'.$output_file, $output_file);
     }
 
