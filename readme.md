@@ -20,6 +20,7 @@ composer require owen-oj/laravel-getid3
 
 ```php
 use Owenoj\LaravelGetId3\GetId3;
+use Illuminate\Support\Facades\Storage
 
 // From an uploaded file (e.g. from a form request)
 $track = GetId3::fromUploadedFile(request()->file('file'));
@@ -27,6 +28,7 @@ $track = GetId3::fromUploadedFile(request()->file('file'));
 // From a Laravel storage disk (works with local, S3, etc.)
 $track = GetId3::fromDiskAndPath('local', '/some/file.mp3');
 $track = GetId3::fromDiskAndPath('s3', 'uploads/video.mp4');
+$track = GetId3::fromDiskAndPath(Storage::disk('public'), 'uploads/video.mp4');
 
 // Direct constructor with a file path
 $track = new GetId3('/absolute/path/to/file.flac');

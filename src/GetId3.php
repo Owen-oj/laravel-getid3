@@ -2,6 +2,7 @@
 
 namespace Owenoj\LaravelGetId3;
 
+use Illuminate\Contracts\Filesystem\Filesystem;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
@@ -28,12 +29,14 @@ class GetId3
         return new static($file);
     }
 
-    public static function fromDiskAndPath($disk, $path)
+    public static function fromDiskAndPath(string|Filesystem $disk, string $path): static
     {
+        $filesystem = is_string($disk) ? Storage::disk($disk) : $disk;
+
         return new static(
             $path,
-            Storage::disk($disk)->size($path),
-            Storage::disk($disk)->readStream($path)
+            $filesystem->size($path),
+            $filesystem->readStream($path)
         );
     }
 
